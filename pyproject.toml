@@ -1,4 +1,5 @@
 [project]
+name = "silly"
 dependencies = [
   "wandb"
 ]
