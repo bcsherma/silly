@@ -2,5 +2,5 @@
 name = "silly"
 version = "1.0"
 dependencies = [
-  "wandb"
+  "wandb==0.16.2"
 ]
