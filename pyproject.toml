@@ -1,6 +1,4 @@
-[project]
-name = "silly"
-version = "1.0"
-dependencies = [
-  "wandb==0.16.2"
-]
+[tool.poetry.dependencies]
+python = "^3.8"
+requests = "^2.25.1"
+flask = "^1.1.2"
