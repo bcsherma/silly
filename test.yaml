@@ -1,3 +1,5 @@
 hello: there
 learning_rate: 0.1
 list: [1, 2, 3]
+thing:
+  nested: value
