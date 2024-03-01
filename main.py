@@ -1,16 +1,16 @@
 import wandb
 import yaml
-from wandb.sdk.launch import template
+from wandb.sdk.launch.template import ConfigFile, WandbConfigKeys, add_parameter
 
 config = {
-    "param1": 1,
-    "param2": 2,
+    "controllable": 1,
+    "uncontrollable": 2
 }
 
 run = wandb.init(config=config)
 
-template.add_parameter(template.WandbConfigKeys(include=["param1", "param2"]))
-template.add_parameter(template.ConfigFile("test.yaml"))
+add_parameter(WandbConfigKeys(include=["controllable"]))
+add_parameter(ConfigFile("test.yaml"))
 
 wandb.config.update(yaml.load(open("test.yaml"), Loader=yaml.FullLoader))
 

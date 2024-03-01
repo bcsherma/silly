@@ -1,5 +1,4 @@
-hello: there
-learning_rate: 0.1
-list: [1, 2, 3]
-thing:
-  nested: value
+base_model: mistralai/Mistral-7B-v0.1
+model_type: MistralForCausalLM
+tokenizer_type: LlamaTokenizer
+is_mistral_derived_model: true
