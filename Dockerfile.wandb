@@ -1,0 +1,25 @@
+# Start with a Python base image.
+FROM python:3.11
+
+# Install Git, necessary tools and Go.
+RUN apt-get update && apt-get install -y git wget
+
+# Install Go.
+COPY --from=golang:1.22-alpine /usr/local/go/ /usr/local/go/
+ENV PATH="/usr/local/go/bin:${PATH}"
+
+# Clone your repository.
+RUN git clone https://github.com/wandb/wandb.git --branch=launch-config-files --single-branch /wandb
+
+# Install wandb package.
+RUN pip install /wandb[launch]
+RUN pip install -r /wandb/requirements_tools.txt -r /wandb/requirements_build.txt
+
+# Core setup.
+WORKDIR /wandb
+RUN ./wini package wandb-core --install
+
+# Copy in source code.
+COPY main.py /src/main.py
+WORKDIR /src
+CMD ["python", "main.py"]
