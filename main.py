@@ -10,8 +10,6 @@ config = {
 
 run = wandb.init(config=config)
 
-run.log_code(".", include_fn=lambda x: x.endswith("main.py"))
-
 template.add_parameter(template.WandbConfigKeys(include=["param1", "param2"]))
 template.add_parameter(template.ConfigFile("test.yaml"))
 
