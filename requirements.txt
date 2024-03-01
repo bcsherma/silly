@@ -1,1 +1,0 @@
-git+https://github.com/wandb/wandb.git@launch-config-files
